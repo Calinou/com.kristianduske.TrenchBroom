@@ -1,7 +1,7 @@
 app-id: com.kristianduske.TrenchBroom
-runtime: org.freedesktop.Platform
-sdk: org.freedesktop.Sdk
-runtime-version: 1.6
+runtime: org.gnome.Platform
+sdk: org.gnome.Sdk
+runtime-version: 3.28
 command: trenchbroom.sh
 rename-desktop-file: trenchbroom.desktop
 rename-icon: trenchbroom
@@ -19,6 +19,9 @@ cleanup:
 - /app/lib/pkgconfig
 
 modules:
+
+- shared-modules/glu/glu-9.0.0.json
+
 - name: wxwidgets
   buildsystem: autotools
   config-opts:
@@ -28,6 +31,14 @@ modules:
   - type: archive
     url: https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.1/wxWidgets-3.1.1.tar.bz2
     sha256: c925dfe17e8f8b09eb7ea9bfdcfcc13696a3e14e92750effd839f5e10726159e
+
+- name: freeimage
+  buildsystem: autotools
+  no-autogen: true
+  sources:
+  - type: archive
+    url: http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
+    sha256: f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd
 
 - name: trenchbroom
   buildsystem: cmake-ninja
