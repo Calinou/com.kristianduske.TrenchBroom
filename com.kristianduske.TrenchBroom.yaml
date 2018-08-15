@@ -39,6 +39,9 @@ modules:
   - type: archive
     url: http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
     sha256: f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd
+  - type: patch
+    path: freeimage-fix-install.patch
+    strip-components: 0
 
 - name: trenchbroom
   buildsystem: cmake-ninja
